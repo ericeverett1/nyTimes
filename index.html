@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>The greatest news app ever</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+		<style type="text/css">.card{height: 100%;}</style>
+	</head>
+	<body>
+		<div class="container" id="app">
+			<h3 class="title is-1">VueNews</h3>
+			<section class="callout secondary">
+				<div class="field has-addons">
+					<div class="control">
+						<div class="select is-fullwidth">
+							<select v-model="section">
+								<option v-for="section in sections" :value="section">{{ section }}</option>
+							</select>
+						</div>
+					</div>
+					<div class="control">
+						<a @click="getPosts(section)" class="button is-primary">Retrieve</a>
+					</div>
+				</div>
+			</section>
+			<br/>
+			<news-list :results="results"></news-list>
+		</div>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vue"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
